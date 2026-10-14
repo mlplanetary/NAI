@@ -38,10 +38,12 @@ const TERMS = [
 const CASED = new RegExp(`\\b(?:${CASED_TERMS.join('|')})(?![a-z])`);
 const ANYCASE = new RegExp(`\\b(?:${TERMS.join('|')})(?![a-zæøå])`, 'i');
 
-const POST = '[data-urn*="urn:li:activity"],[data-id*="urn:li:activity"],[data-urn*="urn:li:aggregate"],.feed-shared-update-v2,[data-view-name="feed-full-update"]';
+// Classic LinkedIn markup, plus the newer layout with randomised class names
+// where each post is a listitem in the main feed.
+const POST = '[data-urn*="urn:li:activity"],[data-id*="urn:li:activity"],[data-urn*="urn:li:aggregate"],.feed-shared-update-v2,[data-view-name="feed-full-update"],[data-testid="mainFeed"] [role="listitem"],[role="listitem"][componentkey*="FeedType_"]';
 // Parts of a post that aren't the post itself: comments, author name/headline,
 // "X liked this" header and reaction counts. Reshared posts are still read.
-const SKIP = '[class*="comments-"],[data-view-name*="comment"],.update-components-actor,.update-components-header,.social-details-social-counts,.social-details-social-activity';
+const SKIP = '[class*="comments-"],[data-view-name*="comment"],[componentkey*="comment" i],[data-testid*="comment" i],.update-components-actor,.update-components-header,.social-details-social-counts,.social-details-social-activity';
 
 let enabled = true;
 
