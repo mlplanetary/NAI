@@ -53,6 +53,9 @@ function isAI(text) {
 
 // The post's own text (incl. any reshared original), without the SKIP parts.
 function postText(post) {
+  // New layout: post bodies (and reshared originals) are expandable text boxes.
+  const boxes = [...post.querySelectorAll('[data-testid="expandable-text-box"]')].filter((b) => !b.closest(SKIP));
+  if (boxes.length) return boxes.map((b) => b.textContent).join(' ');
   let text = '';
   const walker = document.createTreeWalker(post, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, {
     acceptNode: (n) => n.nodeType === 1
