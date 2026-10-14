@@ -6,12 +6,15 @@ NAI is a tiny Chrome/Chromium extension that hides LinkedIn feed posts about AI.
 
 ## What gets hidden
 
-A post is hidden if it contains:
+NAI reads **only the post itself**, plus the original post if it's a reshare. Comments, the author's name and headline, and "X liked this" lines are ignored. A post is hidden if it mentions:
 
-- **Uppercase `AI`** as a word (`AI`, `AI-powered`, `AIs`, `GenAI`, `OpenAI`, `A.I.`), plus `AGI` and `LLM(s)`. Matching is case-sensitive, so words like *said*, *Thai*, *aid* or *fair* are never touched.
-- **Clear AI terms**, in any case: ChatGPT, GPT-4/5, OpenAI, Anthropic, Copilot, Midjourney, DeepSeek, agentic, prompt engineering, vibe coding, generative, machine/deep learning, artificial intelligence, *kunstig intelligens*, large language model, neural network, Sam Altman.
+- **Uppercase `AI`** as a word (`AI`, `AI-powered`, `AI-agenter`, `AIs`, `GenAI`, `A.I.`), plus `AGI`, `LLM(s)` and `GPT`. Matching is case-sensitive, so words like *said*, *Thai*, *aid* or *fair* are never touched.
+- **AI companies:** OpenAI, Anthropic, DeepMind, Mistral, xAI, Hugging Face, Midjourney, DeepSeek, Cohere, Perplexity, ElevenLabs, Cursor, Lovable, Replit, Groq, Cerebras and many more.
+- **AI products and models:** ChatGPT, GPT-5, Claude Code, Gemini, Copilot, Llama, Grok, DALL-E, Stable Diffusion, NotebookLM and others.
+- **AI people:** Sam Altman, Dario Amodei, Demis Hassabis and others.
+- **AI concepts:** machine learning, LLMs, agentic, AI agents, prompt engineering, vibe coding, chatbots, generative and others, plus Danish terms like *kunstig intelligens*, *maskinlæring* and *sprogmodel*.
 
-Everything else stays. Want to tweak the list? Edit the two regexes at the top of [`content.js`](content.js).
+Everything else stays. To tweak the lists, edit `CASED_TERMS` and `TERMS` at the top of [`content.js`](content.js).
 
 ## Install
 
