@@ -1,0 +1,15 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>
+  body { width: 220px; margin: 0; padding: 16px; font: 14px system-ui, sans-serif; background: #fff; color: #111; }
+  h1 { margin: 0 0 4px; font-size: 22px; } h1 span { color: #d22; }
+  p { margin: 0 0 14px; color: #666; font-size: 12px; }
+  label { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+  #count { margin-top: 12px; font-size: 13px; }
+  @media (prefers-color-scheme: dark) { body { background: #1d1d1f; color: #eee; } p { color: #999; } }
+</style>
+<h1><span>N</span>AI</h1>
+<p>Say nay to AI posts.</p>
+<label>Filter LinkedIn <input type="checkbox" id="on"></label>
+<div id="count"></div>
+<script src="popup.js"></script>
